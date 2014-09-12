@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title>sproject 0.1</title>
+</head>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<body>
+
+	<div id="gradeArea">
+
+	</div>
+	<script>
+	$(document).ready(function(){
+		//https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Values,_variables,_and_literals
+		//http://blog.kevinchisholm.com/javascript/include-function-as-javascript-object-member/
+		var student1 = {
+			name : "john doe",
+			program: "general program",
+			level: 2,
+			//
+			courseGrades : {
+				math : "A",
+				english : "B-",
+				history : "C+",
+				french : "F",	
+			}
+
+		}				
+
+		writeStudent(student1);
+
+		// 
+		function writeStudent(student){
+			$('#gradeArea').append("name: " + student.name + "</br>");
+			$('#gradeArea').append("level: " + student.level + "</br>");
+			$('#gradeArea').append("program: " + student.program + "</br>");
+
+			// value of property
+			var grade;
+			var courseGrades = student.courseGrades;
+			for(var course in courseGrades) {
+			    grade = courseGrades[course];
+
+			    $('#gradeArea').append(course + " " +  grade + "</br>");
+			}
+		}
+
+	});
+	</script>
+</body>
+
+</html>
