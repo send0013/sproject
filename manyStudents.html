@@ -9,26 +9,61 @@
 
 	</div>
 	<script src="js/randomStudent.js"></script>
+	<table id="myTable">
+	  <tbody>
+	  </tbody>
+	</table>
 	<script>
 	$(document).ready(function(){
-		var student1 = getRandomStudent();
+		"use strict";
+		// random student
+		var rStudent = getRandomStudent();
 
-		writeStudent(student1);
+		// writeStudent(student1);
+		var numStudents = 10;
+		writeColumns(rStudent);
+		for(var i = 0; i < numStudents; i++){
+			rStudent = getRandomStudent();
+			writeStudenToTable(rStudent);
+		}
 
-		// 
-		function writeStudent(student){
-			$('#gradeArea').append("name: " + student.name + "</br>");
-			$('#gradeArea').append("level: " + student.level + "</br>");
-			$('#gradeArea').append("program: " + student.program + "</br>");
 
-			// value of property
-			var grade;
-			var courseGrades = student.courseGrades;
-			for(var course in courseGrades) {
-			    grade = courseGrades[course];
+		function writeColumns(student){
+			//row html
+			var html;
+			// write sudent prop
+			for(var prop in student) {
+				// var subject = student.courseGrades[course];
+				if(prop === "courseGrades") break;
+				html += "<td>" + prop + "</td>";
+			};
+			for(var course in student.courseGrades) {
+				// var subject = student.courseGrades[course];
+				html += "<td>" + course + "</td>";
+			};
 
-			    $('#gradeArea').append(course + " " +  grade + "</br>");
-			}
+			// > is child selector https://api.jquery.com/child-selector/
+			$("#myTable > tbody").append("<tr>"+ html + "</tr>");
+		}
+
+
+		// https://stackoverflow.com/questions/171027/add-table-row-in-jquery
+		function writeStudenToTable(student){
+			var html;
+			for(var prop in student) {
+				// var subject = student.courseGrades[course];
+				if(prop === "courseGrades") break;
+
+				html += "<td>" + student[prop] + "</td>";
+			};
+
+			for(var course in student.courseGrades) {
+				// var subject = student.courseGrades[course];
+				html += "<td>" + student.courseGrades[course] + "</td>";
+			};
+
+			$("#myTable > tbody").append("<tr>"+ html + "</tr>");
+	
 		}
 
 	});
