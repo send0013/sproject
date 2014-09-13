@@ -28,8 +28,15 @@
 		// add 10 random students to table	
 		for(var i = 0; i < numStudents; i++){
 			rStudent = getRandomStudent();
-			writeStudenToTable(rStudent);
+			writeStudenToRow(rStudent);
 		}
+
+		$("#myTable .Name").click(function(e) {  
+	        e.preventDefault();
+			// console.log($(this).data('value'));
+			
+			e.stopPropagation();
+		});
 
 
 	});

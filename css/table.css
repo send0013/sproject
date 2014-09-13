@@ -3,6 +3,9 @@ tbody tr:nth-child(odd) {
   background: #eee;
 }
 
+/*.name{
+  background-color: #fff;
+}*/
 
 
 td, th {
