@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>sproject 0.1</title>
+</head>
+<link rel="stylesheet" type="text/css" href="css/table.css">
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<body>
+
+	<script src="js/tableFunctions.js"></script>
+	<script src="js/randomStudent.js"></script>
+
+	<table id="myTable">
+	  <tbody>
+	  </tbody>
+	</table>
+
+	<script>
+
+	$(document).ready(function(){
+
+		"use strict";
+		// random student
+		var rStudent = getRandomStudent();
+
+		var numStudents = 10;
+		writeColumns(rStudent);
+		// add 10 random students to table	
+		for(var i = 0; i < numStudents; i++){
+			rStudent = getRandomStudent();
+			writeStudenToTable(rStudent);
+		}
+
+
+	});
+	</script>
+</body>
+
+</html>

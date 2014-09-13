@@ -16,20 +16,11 @@ function getRandomStudent(){
 
 function RandomStudent(){
 	this.Name = firstNames[Math.floor(random(firstNames.length))] + " " + lastNames[Math.floor(random(firstNames.length))],
-	this.Program = "program1",
-	this.Level= Math.floor(random(5)),
+	this.Program = "GEN_1",
+	this.Level= Math.floor(random(4)) + 1,
 	//https://stackoverflow.com/questions/1208222/how-do-i-implement-a-dictionary-or-hashtable-in-javascript
 	this.courseGrades = {}   
 }
-
-// can't use new for literals
-var randomStudent = {
-	name : firstNames[Math.floor(random(firstNames.length))] + " " + lastNames[Math.floor(random(firstNames.length))],
-	program: "program1",
-	level: Math.floor(random(5)),
-	//https://stackoverflow.com/questions/1208222/how-do-i-implement-a-dictionary-or-hashtable-in-javascript
-	courseGrades : {}
-};
 
 function randomGrade(){
 	var grades = ["A", "B", "C", "D", "F"];
