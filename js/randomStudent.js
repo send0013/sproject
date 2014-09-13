@@ -25,7 +25,8 @@ function RandomStudent(){
 function randomGrade(){
 	var grades = ["A", "B", "C", "D", "F"];
 	var plusOrMinus = Math.random() > 0.5 ? "-" : "+";
-	var grade = grades[Math.floor(random(grades.length))] + " " + plusOrMinus;
+	var grade = grades[Math.floor(random(grades.length))];
+	grade = grade === "F" ? grade: grade+= " " + plusOrMinus;
 	return grade;
 }
 

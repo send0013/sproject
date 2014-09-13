@@ -17,12 +17,17 @@
 	<div id="accordian">
 		<ul>
 			<li>
-				<h3>Dashboard</h3>
+				<h3>Grade view</h3>
 				<ul>
-					<li id="grade"><a href="#">Course + Grade</a></li>
+					<p>Course and Grade</p>
+					<div id="grade"></div>
 					<!-- <li id="grade"><a href="#">Grades</a></li> -->
 					<!-- <li><a href="#">Graphs</a></li> -->
 					<!-- <li><a href="#">Setting</a></li> -->
+				</ul>
+				<ul>
+					<p>Next semester course</p>
+					<div id="nextGrade"></div>
 				</ul>
 			</li>
 		</ul>
@@ -58,17 +63,34 @@
 	        var name = $(this).text();
 	        // console.log(name);
 	        var student = findStudent(name);
-	        openMenu(student);
+	        showStudentGrades(student);
+	        showNextSemesterGrades(student);
 			// e.stopPropagation();
 		});
 
-		function openMenu(student){
-			var html;
+		function showStudentGrades(student){
+			var html = "<ul>";
 			for(var course in student.courseGrades) {
-				html += "<li>"+ course +" "+ student.courseGrades[course] + "</li>";
+				html += "<li>"+ course +" "+student.Level +" "+ student.courseGrades[course] + "</li>";
 			};
-			// html += "</ul>";
+			html += "</ul>";
 			$("#accordian #grade").html(html);
+		}
+
+		function showNextSemesterGrades(student){
+			var html = "<ul>";
+			for(var course in student.courseGrades) {
+				var level = student.Level;
+				var grade = student.courseGrades[course];
+				//|| grade !== "F -"|| grade !== "F +"
+				if(grade !== "F" ){
+					// console.log(course , grade);
+					level +=1;
+				}
+				html += "<li>"+ course + " "+level +"</li>";
+			};
+			html += "</ul>";
+			$("#accordian #nextGrade").html(html);
 		}
 
 		function findStudent(str){
