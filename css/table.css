@@ -7,10 +7,17 @@ tbody tr:nth-child(odd) {
   background-color: #fff;
 }*/
 
+#table{
+  position: absolute;
+          /*left: 0;*/
+        /*right: 300px;*/
+}
 
 td, th {
+  /*position: absolute;*/
 	table-layout: fixed;
-  /*width: 1rem;*/
+
+  /*width: 100%;*/
   height: 2rem;
   border: 2px solid #ccc;
   text-align: center;
@@ -23,6 +30,7 @@ th {
   border-color: white;
 }
 body {
+  /*position: relative;*/
   padding: 2rem;
   opacity: 1;
 }
