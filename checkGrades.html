@@ -21,6 +21,7 @@
 
 		"use strict";
 		// random student
+		var studentList = [];
 		var rStudent = getRandomStudent();
 
 		var numStudents = 10;
@@ -28,15 +29,34 @@
 		// add 10 random students to table	
 		for(var i = 0; i < numStudents; i++){
 			rStudent = getRandomStudent();
+			studentList.push(rStudent);
 			writeStudenToRow(rStudent);
 		}
 
 		$("#myTable .Name").click(function(e) {  
-	        e.preventDefault();
-			// console.log($(this).data('value'));
-			
-			e.stopPropagation();
+	        // e.preventDefault();
+	        $(this).css({"color":"green"});
+	        // var name = $(this).find(".Name").val();
+	        var name = $(this).text();
+	        // console.log(name);
+	        var student = findStudent(name);
+	        openMenu(student);
+			// e.stopPropagation();
 		});
+
+		function openMenu(student){
+			
+		}
+
+		function findStudent(str){
+			// find student by name
+			for(var i in studentList){
+				if(str === studentList[i].Name){
+					// console.log(str + " " + studentList[i].Name);
+					return studentList[i];
+				}
+			}
+		}
 
 
 	});
