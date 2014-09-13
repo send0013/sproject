@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title>sproject 0.1</title>
+</head>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<body>
+
+	<div id="gradeArea">
+
+	</div>
+	<script src="js/randomStudent.js"></script>
+	<script>
+	$(document).ready(function(){
+		var student1 = getRandomStudent();
+
+		writeStudent(student1);
+
+		// 
+		function writeStudent(student){
+			$('#gradeArea').append("name: " + student.name + "</br>");
+			$('#gradeArea').append("level: " + student.level + "</br>");
+			$('#gradeArea').append("program: " + student.program + "</br>");
+
+			// value of property
+			var grade;
+			var courseGrades = student.courseGrades;
+			for(var course in courseGrades) {
+			    grade = courseGrades[course];
+
+			    $('#gradeArea').append(course + " " +  grade + "</br>");
+			}
+		}
+
+	});
+	</script>
+</body>
+
+</html>
