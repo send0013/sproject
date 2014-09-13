@@ -2,6 +2,8 @@
 <head>
 	<title>sproject 0.1</title>
 </head>
+<link rel="stylesheet" type="text/css" href="css/table.css">
+
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <body>
 
@@ -37,6 +39,7 @@
 				if(prop === "courseGrades") break;
 				html += "<td>" + prop + "</td>";
 			};
+			// write grades
 			for(var course in student.courseGrades) {
 				// var subject = student.courseGrades[course];
 				html += "<td>" + course + "</td>";

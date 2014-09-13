@@ -1,0 +1,25 @@
+/* http://css-tricks.com/complete-guide-table-element/ */
+tbody tr:nth-child(odd) {
+  background: #eee;
+}
+
+
+
+td, th {
+	table-layout: fixed;
+  /*width: 1rem;*/
+  height: 2rem;
+  border: 2px solid #ccc;
+  text-align: center;
+  /*padding: ;*/
+  /*spacing:10px;*/
+}
+th {
+  background: blue;
+  width: 100px;
+  border-color: white;
+}
+body {
+  padding: 2rem;
+  opacity: 1;
+}
