@@ -11,9 +11,6 @@
 	<script src="js/tableFunctions.js"></script>
 	<script src="js/randomStudent.js"></script>
 
-
-
-
 	<div id="accordian">
 		<ul>
 			<li>
@@ -21,9 +18,6 @@
 				<ul>
 					<p>Course and Grade</p>
 					<div id="grade"></div>
-					<!-- <li id="grade"><a href="#">Grades</a></li> -->
-					<!-- <li><a href="#">Graphs</a></li> -->
-					<!-- <li><a href="#">Setting</a></li> -->
 				</ul>
 				<ul>
 					<p>Next semester course</p>
@@ -32,6 +26,7 @@
 			</li>
 		</ul>
 	</div>
+	<p> Click on names to view grades </p>
 	<div id="table">
 		<table id="myTable" >
 		  <tbody>
@@ -43,12 +38,13 @@
 	$(document).ready(function(){
 
 		"use strict";
-		// random student
+		
 		var studentList = [];
 		var rStudent = getRandomStudent();
 
 		var numStudents = 10;
 		writeColumns(rStudent);
+
 		// add 10 random students to table	
 		for(var i = 0; i < numStudents; i++){
 			rStudent = getRandomStudent();
@@ -56,18 +52,18 @@
 			writeStudenToRow(rStudent);
 		}
 
+		// find student by table value then show grades when clicked on 
 		$("#myTable .Name").click(function(e) {  
-	        // e.preventDefault();
 	        $(this).css({"color":"green"});
-	        // var name = $(this).find(".Name").val();
+
 	        var name = $(this).text();
-	        // console.log(name);
 	        var student = findStudent(name);
+
 	        showStudentGrades(student);
 	        showNextSemesterGrades(student);
-			// e.stopPropagation();
 		});
 
+		// make list of courses and grades plus level
 		function showStudentGrades(student){
 			var html = "<ul>";
 			for(var course in student.courseGrades) {
@@ -77,14 +73,13 @@
 			$("#accordian #grade").html(html);
 		}
 
+		// make list of courses and grades for next level if pass
 		function showNextSemesterGrades(student){
 			var html = "<ul>";
 			for(var course in student.courseGrades) {
 				var level = student.Level;
 				var grade = student.courseGrades[course];
-				//|| grade !== "F -"|| grade !== "F +"
 				if(grade !== "F" ){
-					// console.log(course , grade);
 					level +=1;
 				}
 				html += "<li>"+ course + " "+level +"</li>";
@@ -93,11 +88,10 @@
 			$("#accordian #nextGrade").html(html);
 		}
 
+		// find student by name
 		function findStudent(str){
-			// find student by name
 			for(var i in studentList){
 				if(str === studentList[i].Name){
-					// console.log(str + " " + studentList[i].Name);
 					return studentList[i];
 				}
 			}

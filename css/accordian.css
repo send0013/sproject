@@ -3,7 +3,6 @@
 
 
 #accordian{
-
 	background: linear-gradient(#004050, #002535);
 	/*margin: 0px auto 0 auto;*/
 	margin: 0px 15px 15px 0px;
@@ -27,16 +26,15 @@
 /*list items*/
 #accordian p{
 	list-style-type: none;
-	/*text-decoration: none;*/
-	display: inline;
+	text-decoration: none;
+	/*display: inline;*/
+	background:#00253e;
 	padding-right: 20px;
 }
-/*links*/
-/*#accordian li a {
 
+#accordian ul{
 	color: white;
 	list-style-type: none;
 	/*font-size: 11px;*/
-	line-height: 27px;
-	padding: 15px 15px;
-}*/
+	/*line-height: 27px;*/
+}
