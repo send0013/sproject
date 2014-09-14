@@ -9,6 +9,8 @@ tbody tr:nth-child(odd) {
 
 #table{
   position: absolute;
+  float:left;
+  width: 100%;
           /*left: 0;*/
         /*right: 300px;*/
 }
@@ -17,7 +19,7 @@ td, th {
   /*position: absolute;*/
 	table-layout: fixed;
 
-  /*width: 100%;*/
+  
   height: 2rem;
   border: 2px solid #ccc;
   text-align: center;

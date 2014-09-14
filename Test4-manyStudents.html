@@ -10,24 +10,23 @@
 
 	<script src="js/tableFunctions.js"></script>
 	<script src="js/randomStudent.js"></script>
+
+	<div id="accordian">
+		<ul>
+			<li>
+				<h3>Grade view</h3>
+				<ul>
+					<p>Course and Grade</p>
+					<div id="grade"></div>
+				</ul>
+				<ul>
+					<p>Next semester course</p>
+					<div id="nextGrade"></div>
+				</ul>
+			</li>
+		</ul>
+	</div>
 	<p> Click on names to view grades </p>
-	<div>
-		<div id="accordian">
-			<ul>
-				<li>
-					<h3>Grade view</h3>
-					<ul>
-						<p>Course and Grade</p>
-						<div id="grade"></div>
-					</ul>
-					<ul>
-						<p>Next semester course</p>
-						<div id="nextGrade"></div>
-					</ul>
-				</li>
-			</ul>
-		</div>
-	<div>
 	<div id="table">
 		<table id="myTable" >
 		  <tbody>
@@ -52,9 +51,6 @@
 			studentList.push(rStudent);
 			writeStudenToRow(rStudent);
 		}
-
-		var $tableWidth = $("#myTable").width();
-		$("#accordian").css("margin-left", $tableWidth);
 
 		// find student by table value then show grades when clicked on 
 		$("#myTable .Name").click(function(e) {  

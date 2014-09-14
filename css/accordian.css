@@ -4,11 +4,12 @@
 
 #accordian{
 	background: linear-gradient(#004050, #002535);
-	/*margin: 0px auto 0 auto;*/
-	margin: 0px 15px 15px 0px;
-	width:80%;
-    height: 70%;
-    float: right;
+	/*margin: 51px auto 0 auto;*/
+	margin-left: 300px;
+	/*width:80%;*/
+    /*height: 70%;*/
+
+    float: left;
 	color: white;
 	text-align: left;
 }
