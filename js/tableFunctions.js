@@ -21,7 +21,6 @@ function writeColumns(student){
 	$("#myTable > tbody").append("<tr>"+ html + "</tr>");
 }
 
-
 // https://stackoverflow.com/questions/171027/add-table-row-in-jquery
 function writeStudenToRow(student){
 	var html;
@@ -40,6 +39,5 @@ function writeStudenToRow(student){
 
 	// 	html += "<td>" + student.courseGrades[course] + "</td>";
 	// };
-	$("#myTable > tbody").append("<tr>"+ html + "</tr>");
-	
+	$("#myTable > tbody").append("<tr>"+ html + "</tr>");	
 }
