@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Result</title>
+        <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <style type="text/css">
+    #panel {
+        position: absolute;
+        padding: 50px;
+        height: 100px;
+        width: 500px;
+        top: -180px;
+        text-align: center;
+        font-size: 24px;
+        font-family: Arial;
+        font-weight: bold;
+        background: #EEE;
+        cursor: pointer;
+        -webkit-border-bottom-left-radius: 10px;
+    }
+
+    #tab {
+        position: absolute;
+        bottom: -25px;
+        right: 0px;
+        padding: 10px;
+        background: #EEE;
+        font-size: 16px;
+        text-decoration: none;
+        -webkit-border-bottom-right-radius: 10px;
+        -webkit-border-bottom-left-radius: 10px;
+    }
+    </style>
+    </head>
+
+    <body>
+        <div id="panel">
+            Awesome hidden sliding pane
+            <a href="#panel" id="tab">Click to show</a>
+        </div>
+
+        <script>
+        //http://www.codecademy.com/courses/javascript-lesson-951/0/7
+        var ANIMATION_LENGTH = 500;
+
+        $(document).ready(function(){
+            var $panel = $("#panel"); 
+            var $tab = $("#tab");
+            
+            
+            $tab.click(function(){
+              //  var isShown = true;
+                var isShown = $panel.css("top");
+                console.log(isShown);
+                var newTop = isShown === '0px' ? '-180px' : '0px';
+                $panel.animate({"top": newTop}, ANIMATION_LENGTH);
+            });
+            
+            });
+
+        </script>
+    </body>
+
+</html>
