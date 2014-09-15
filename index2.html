@@ -9,23 +9,17 @@
 
     }
 
-    .content h1{
-        font-size: 18px;
-        padding-top: 24px;
-        padding-bottom:5px;
-        padding-left: 20px;
-        text-transform:uppercase;
+    .content #grades{
+        font-size: 14px;
+        color: #00b0ff;
     }
 
-    .content p{
-        display: inline;
-        background-color: #ddd;
-        border-radius: 6px;
-        padding-left: 45px;
-        padding-right: 25px;
-        /*margin-left: -15px*/
-
-
+    .content h1{
+        font-size: 16px;
+        /*padding-top: 24px;*/
+        padding-bottom:5px;
+        margin-left: -10px;
+        text-transform:uppercase;
     }
 
     .learn-more{
@@ -40,6 +34,10 @@
         font-family:'Shift', sans-serif;
         font-size: 18px;
         font-weight:bold;
+    }
+
+    .nav #title{
+        font-size: 14;
     }
 
     .nav li{
@@ -59,8 +57,12 @@
     .list-group-item{
         margin-left: 20px;
         /*padding-left:30px; */
-        
-        width:20%;
+        width:50%;
+    }
+    #grade{
+
+        display: inline;
+        margin-left: 0px;
     }
     </style>
 </head>
@@ -68,7 +70,7 @@
   <div class="nav">
       <div class="container">
         <ul class="pull-left">
-    	  <li>Software project</li>
+    	  <li>softwawe project</li>
     	</ul>
     	<ul class="pull-right">
 	        <!-- <li>Sign up</li> -->
@@ -78,59 +80,44 @@
       </div>
 </div>
 
-<div class="content" class="neighborhood-guides">
-    <div class="neighborhood-guides">
-        <div class="container">
-            
-        </div>
-    </div>
+<div class="content">
     <div class="container">
     <h1>Students</h1>
-    <div id="students">
-        <ul class="list-group" id="studentList">
-            <li class="list-group-item" id="name">Srowse</li>
-        </ul>
-    </div>
-</div>
+    <!-- <h1>Grades</h1> -->
+    <div class="row">
+        <div class="col-md-3">
+            <div id="students">
+                <ul class="list-group" id="studentList">
+                    <li class="list-group-item" id="name">Srowse</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div id="gradeContent">
+                <h2 id="grades">GRADES</h2>
+                    <ul>
+                        <li id="grade">
+                            <ul class="list-group" id="gradeList">
+                                <li class="list-group-item">asdf</li>
+                                <li class="list-group-item">asdf</li>
+                            </ul>
+                        </li>
+                        <li id="grade">
+                            <ul class="list-group" id="gradeList">
+                                <li class="list-group-item">asdf</li>
+                                <li class="list-group-item">asdf</li>
+                            </ul>
+                        </li>
 
-<div class="learn-more">
-    <div class="neighborhood-guides">
-        <div class="container">
-            
+                    </ul>
+                    <!-- <ul class="list-group" id="courseList"> -->
+                        <!-- <li class="list-group-item" id="course">Srowse</li> -->
+                    <!-- </ul> -->
+            </div>
+
         </div>
     </div>
-    <div class="container">
-        <!-- //bootstrap boydy is 12 cols so 12/4 = 3
-        rranged the three pieces of supporting content into a three-column layout. -->
-        <div class="row">
-            <div class="col-md-4">
-            <h3> Travel</h3>
-            <p> From apartments and rooms to treehouses 
-            and boats: stay in unique spaces in 192 c
-            ountries.</p>
-            <p>
-                <a href="#">See how to travel on Airbnb</a>
-            </p>
-            </div>
-            <div class="col-md-4">
-                <h3>Host</h3>
-                <p>Renting out your unused space could pay your bills or fund your next vacation.</p>
-                <p>
-                    <a href="#">Learn more about hosting</a>
-                </p>
-            </div>
-            <div class="col-md-4">
-                <h3>Trust and Safety</h3>
-                <p>From Verified ID to 
-                our worldwide customer support team, 
-                we've got your back</p>
-                <p>
-                    <a href="#">Learn about 
-                    trust at Airbnb</a>
-                </p>
-            </div>
-        </div>
-    </div>
+
 </div>
     <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="js/tableFunctions.js"></script>
@@ -171,12 +158,15 @@
             {
                 id: "name",
                 class: "list-group-item",
-                html:rStudent.Name 
+                html:rStudent.Name,
+                click: onStudentClick
             },"</li>");
             $("#studentList").append($student);
         }
 
-
+        function onStudentClick(){
+            console.log($(this).text());
+        }
 
 
     });
