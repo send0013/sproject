@@ -59,7 +59,7 @@
         /*padding-left:30px; */
         width:50%;
     }
-    #grade{
+    #gradeRow{
 
         display: inline;
         margin-left: 0px;
@@ -95,21 +95,12 @@
         <div class="col-md-3">
             <div id="gradeContent">
                 <h2 id="grades">GRADES</h2>
-                    <ul>
-                        <li id="grade">
-                            <ul class="list-group" id="gradeList">
-                                <li class="list-group-item">asdf</li>
-                                <li class="list-group-item">asdf</li>
-                            </ul>
-                        </li>
-                        <li id="grade">
-                            <ul class="list-group" id="gradeList">
-                                <li class="list-group-item">asdf</li>
-                                <li class="list-group-item">asdf</li>
-                            </ul>
-                        </li>
-
-                    </ul>
+                <div id="gradeList">
+<!--                     <ul class="list-group">
+                        <li class="list-group-item" id="gradeRow">asdf</li>
+                        <li class="list-group-item" id="gradeRow">asdf</li>
+                    </ul> -->
+                </div>
                     <!-- <ul class="list-group" id="courseList"> -->
                         <!-- <li class="list-group-item" id="course">Srowse</li> -->
                     <!-- </ul> -->
@@ -165,7 +156,14 @@
         }
 
         function onStudentClick(){
-            console.log($(this).text());
+            //
+            var html = '<ul class="list-group">'+
+                            '<li class="list-group-item" id="gradeRow">asdf</li>'+
+                            '<li class="list-group-item" id="gradeRow">asdf</li>'+
+                        '</ul>';
+            // var $gradeList.;
+            $("#gradeList").append(html);
+
         }
 
 
