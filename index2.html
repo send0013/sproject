@@ -60,7 +60,7 @@
         width:50%;
     }
     #gradeRow{
-
+        padding-right: 20px;
         display: inline;
         margin-left: 0px;
     }
@@ -88,7 +88,7 @@
         <div class="col-md-3">
             <div id="students">
                 <ul class="list-group" id="studentList">
-                    <li class="list-group-item" id="name">Srowse</li>
+                    <!-- <li class="list-group-item" id="name">Srowse</li> -->
                 </ul>
             </div>
         </div>
@@ -141,6 +141,7 @@
 
         for(var i = 0; i < numStudents; i++){
             rStudent = getRandomStudent();
+            studentList.push(rStudent);
             // writeStudenToRow(rStudent);
             // use jquery object instead of strings
            // https://stackoverflow.com/questions/1145208/jquery-how-to-add-li-in-an-existing-ul
@@ -149,20 +150,41 @@
             {
                 id: "name",
                 class: "list-group-item",
-                html:rStudent.Name,
-                click: onStudentClick
+                html:rStudent.Name
+               // click: showStudentGrades
             },"</li>");
             $("#studentList").append($student);
         }
 
-        function onStudentClick(){
-            //
-            var html = '<ul class="list-group">'+
-                            '<li class="list-group-item" id="gradeRow">asdf</li>'+
-                            '<li class="list-group-item" id="gradeRow">asdf</li>'+
+        $("#students #name").click(function(e) {  
+            $(this).css({"color":"green"});
+
+            var name = $(this).text();
+            var student = findStudent(name);
+
+            showStudentGrades(student);
+            // showNextSemesterGrades(student);
+        });
+
+                // find student by name
+        function findStudent(str){
+            for(var i in studentList){
+                if(str === studentList[i].Name){
+                    return studentList[i];
+                }
+            }
+        }
+
+        function showStudentGrades(student){
+            var html;
+            for(var course in student.courseGrades) {
+                html += '<ul class="list-group">'+
+                        '<li class="list-group-item" id="gradeRow">'+student.Name+' '+course+'</li>'+
+                        '<li class="list-group-item" id="gradeRow">'+student.courseGrades[course]+'</li>'+
                         '</ul>';
-            // var $gradeList.;
-            $("#gradeList").append(html);
+            };
+            if(html === undefined) return;
+            $("#gradeList").html(html);
 
         }
 
