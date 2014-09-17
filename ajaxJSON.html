@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title>ajax_json</title>
+</head>
+<body>
+
+	<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+	$(document).ready(function(){
+        "use strict";
+        getJSON();
+
+    ////http://stackoverflow.com/questions/6809053/simple-jquery-php-and-jsonp-example
+    //http://api.jquery.com/jquery.ajax/
+    function getJSON(){
+        $.ajax({
+            type: "GET",
+            timeout: 5000,
+            // crossDomain: true,
+            // go here to see the raw data
+            url: 'http://www.algonquinstudents.ca/~embl0008//REST/sendJSON.php',
+            // need this for php to work
+            data:"callback=?",
+            dataType: 'jsonp',
+            success:function(data){
+                console.log("Success");
+            },
+            error:function(textStatus, errorThrown){
+                console.log(JSON.stringify(textStatus));
+                console.log(errorThrown);
+            }              
+        })
+            .done(function(data) {
+                // var html = $.parseJSON(msg).html;
+                document.write(JSON.stringify(data));
+            });        
+    }
+    });
+
+
+    </script>
+</body>
+</html>
