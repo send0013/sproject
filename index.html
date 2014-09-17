@@ -6,7 +6,6 @@
     .content{
         background-color: #eee;
         border-radius: 5px;
-
     }
 
     .content #grades{
@@ -16,7 +15,6 @@
 
     .content h1{
         font-size: 16px;
-        /*padding-top: 24px;*/
         padding-bottom:5px;
         margin-left: -10px;
         text-transform:uppercase;
@@ -59,11 +57,27 @@
         /*padding-left:30px; */
         width:50%;
     }
+
     #gradeRow{
-        padding-right: 20px;
+        padding-right: 2em;
+        width: 3em;
+        /*padding-left: 0.5em;*/
+        /*margin-left: 120px;*/
         display: inline;
         margin-left: 0px;
     }
+
+/*.tab-content > .active,
+.pill-content > .active {
+  display: block;
+}
+
+    .tabs-left > .nav-tabs > li,
+    .tabs-right > .nav-tabs > li {
+      float: none;
+           -moz-border-radius: 0 0 4px 4px;
+          border-radius: 0 0 4px 4px;
+    }*/
     </style>
 </head>
 
@@ -164,7 +178,6 @@
             );
 
         $("#students #name").click(function(e) {  
-
             var name = $(this).text();
             var student = findStudent(name);
 
@@ -174,9 +187,7 @@
 
 
         function showStudentGrades(student){
-  
             $("#grades").html("Current Grades for " + student.Name);
-
             // if var is not set to '' underfined will be added to the string
             var html = '';
             for(var course in student.courseGrades) {
